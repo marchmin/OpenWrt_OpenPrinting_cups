@@ -23,6 +23,14 @@ PKG_BUILD_DEPENDS:=bison/host flex/host
 
 include $(INCLUDE_DIR)/package.mk
 
+define Build/Prepare
+	$(call Build/Prepare/Default,)
+	$(INSTALL_DIR) $(PKG_BUILD_DIR)/doc/zh_CN
+	$(INSTALL_DIR) $(PKG_BUILD_DIR)/templates/zh_CN
+	$(CP) $(CURDIR)/files/zh_CN/doc/* $(PKG_BUILD_DIR)/doc/zh_CN/
+	$(CP) $(CURDIR)/files/zh_CN/templates/* $(PKG_BUILD_DIR)/templates/zh_CN/
+endef
+
 define Package/cups/Default
   SECTION:=net
   CATEGORY:=Network
@@ -94,7 +102,7 @@ TARGET_LDFLAGS += -Wl,--as-needed -Wl,-rpath-link=$(STAGING_DIR)/usr/lib
 define Build/Configure
 	$(call Build/Configure/Default, \
 		--enable-shared \
-		--with-languages=ja \
+		--with-languages="ja zh_CN" \
 		--with-pdftops=none \
 		--without-perl \
 		--without-python \
