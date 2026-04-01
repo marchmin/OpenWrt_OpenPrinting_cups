@@ -10,12 +10,12 @@ on:
   workflow_dispatch:
 
 env:
-  OPENWRT_VERSION: "24.10.0"
+  OPENWRT_VERSION: "23.05.0"
 
 jobs:
   build:
     name: ${{ matrix.target }}/${{ matrix.subtarget }} build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     strategy:
       fail-fast: false
       matrix:
