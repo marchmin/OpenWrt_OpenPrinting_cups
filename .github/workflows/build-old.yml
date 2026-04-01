@@ -1,6 +1,6 @@
 # OpenWrt CUPS Package Build
 # 从 downloads.openwrt.org 下载 SDK，产出 .ipk（opkg 格式，适配 21.02.x 21.03.x-23.05.x）
-name: Build CUPS for OpenWrt
+name: Build CUPS for OpenWrt—old
 
 on:
   push:
