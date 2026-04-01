@@ -20,9 +20,51 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - arch: x86_64
+            target: x86
+            subtarget: "64"
+          - arch: aarch64_cortex-a72
+            target: mvebu
+            subtarget: cortexa72
+          - arch: aarch64_generic
+            target: rockchip
+            subtarget: armv8
+          - arch: aarch64_cortex-a53_filogic
+            target: mediatek
+            subtarget: filogic
+          - arch: mips_24kc
+            target: malta
+            subtarget: be
           - arch: mipsel_24kc
             target: ramips
             subtarget: mt7621
+          - arch: mipsel_24kc_mt7620
+            target: ramips
+            subtarget: mt7620
+          - arch: mipsel_24kc_rt305x
+            target: ramips
+            subtarget: rt305x
+          - arch: mips_24kc_ath79
+            target: ath79
+            subtarget: generic
+          - arch: mips_24kc_ath79_tiny
+            target: ath79
+            subtarget: tiny
+          - arch: arm_cortex-a7_neon-vfpv4
+            target: sunxi
+            subtarget: cortexa7
+          - arch: arm_cortex-a9
+            target: mvebu
+            subtarget: cortexa9
+          - arch: powerpc_8548
+            target: mpc85xx
+            subtarget: p1020
+          - arch: stm32-stm32mp1
+            target: stm32
+            subtarget: stm32mp1
+          - arch: lantiq-xrx200_legacy
+            target: lantiq
+            subtarget: xrx200
             
     steps:
       - name: Checkout repository
