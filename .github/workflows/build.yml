@@ -41,7 +41,7 @@ jobs:
           INDEX=$(curl -sL "${BASE_URL}/${TARGET_PATH}/")
           SDK_FILE=$(echo "$INDEX" | grep -oE "openwrt-sdk-${OPENWRT_VERSION}-${TARGET}-${SUBTARGET}_[^\"]+\.tar\.xz" | head -1)
           [ -n "$SDK_FILE" ] || { echo "ERROR: Could not find SDK for ${TARGET_PATH}"; exit 1; }
-          curl -sL -o sdk.tar.zst "${BASE_URL}/${TARGET_PATH}/${SDK_FILE}"
+          curl -sL -o sdk.tar.xz "${BASE_URL}/${TARGET_PATH}/${SDK_FILE}"
           tar -I zstd -Jxvf sdk.tar.xz
           rm sdk.tar.xz
           SDK_DIR=$(find . -maxdepth 1 -type d -name "openwrt-sdk-*" | head -1)
