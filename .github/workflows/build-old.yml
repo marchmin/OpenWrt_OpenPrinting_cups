@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 env:
-  OPENWRT_VERSION: "22.03.0"
+  OPENWRT_VERSION: "23.05.0"
 
 jobs:
   build:
