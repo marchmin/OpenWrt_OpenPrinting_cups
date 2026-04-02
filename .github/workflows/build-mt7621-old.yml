@@ -66,7 +66,7 @@ jobs:
       - name: Upload packages
         uses: actions/upload-artifact@v4
         with:
-          name: cups-${{ matrix.arch }}-packages
+          name: cups-${OPENWRT_VERSION}-${{ matrix.arch }}-packages
           path: openwrt-sdk-*/bin/**/cups*.ipk
           if-no-files-found: warn
 
@@ -74,7 +74,7 @@ jobs:
         if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: cups-${{ matrix.arch }}-logs
+          name: cups-${OPENWRT_VERSION}-${{ matrix.arch }}-logs
           path: openwrt-sdk-*/logs/
           if-no-files-found: ignore
 
