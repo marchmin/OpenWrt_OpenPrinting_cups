@@ -73,6 +73,7 @@ jobs:
       - name: Build CUPS packages
         run: |
           cd ${{ steps.sdk.outputs.dir }}
+          ls package/feeds/openprinting_cups/cups
           make package/feeds/openprinting_cups/cups/compile -j$(nproc) V=s
 
       - name: Upload packages
