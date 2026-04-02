@@ -59,12 +59,6 @@ jobs:
           - arch: powerpc_8548
             target: mpc85xx
             subtarget: p1020
-          - arch: stm32-stm32mp1
-            target: stm32
-            subtarget: stm32mp1
-          - arch: lantiq-xrx200_legacy
-            target: lantiq
-            subtarget: xrx200
             
     steps:
       - name: Checkout repository
