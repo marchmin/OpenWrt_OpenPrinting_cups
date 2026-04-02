@@ -49,9 +49,8 @@ jobs:
           echo "SDK_DIR=${SDK_DIR}" >> $GITHUB_ENV
 
       - name: Configure feed
-        env:
-          FEED_DIR: https://github.com/TheMMcOfficial/lede-cups
         run: |
+          FEED_DIR= "https://github.com/TheMMcOfficial/lede-cups"
           cd ${{ steps.sdk.outputs.dir }}
           [ -f feeds.conf ] || cp feeds.conf.default feeds.conf
           echo "src-link openprinting_cups $FEED_DIR" >> feeds.conf
