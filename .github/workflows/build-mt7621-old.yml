@@ -15,7 +15,7 @@ on:
         default: 'false'
 
 env:
-  OPENWRT_VERSION: "19.07.0"
+  OPENWRT_VERSION: "21.02.0"
 
 jobs:
   build:
