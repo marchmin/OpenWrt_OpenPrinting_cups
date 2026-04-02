@@ -73,7 +73,7 @@ jobs:
       - name: Build CUPS packages
         run: |
           cd ${{ steps.sdk.outputs.dir }}
-          make package/cups/compile -j$(nproc) V=s
+          make package/feeds/cups/compile -j$(nproc) V=s
 
       - name: Upload packages
         uses: actions/upload-artifact@v4
