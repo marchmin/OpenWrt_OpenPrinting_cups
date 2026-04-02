@@ -55,10 +55,10 @@ jobs:
 
       - name: Configure feed
         run: |
-          FEED_DIR="https://github.com/marchmin/lede-cups/"
+          FEED_DIR="https://github.com/marchmin/OpenWrt_OpenPrinting_cups"
           cd ${{ steps.sdk.outputs.dir }}
           [ -f feeds.conf ] || cp feeds.conf.default feeds.conf
-          echo "src-git openprinting_cups $FEED_DIR" >> feeds.conf
+          echo "src-link openprinting_cups $FEED_DIR" >> feeds.conf
           ./scripts/feeds update -a
           ./scripts/feeds install -p openprinting_cups -f cups
           make defconfig 2>/dev/null || true
