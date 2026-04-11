@@ -1,5 +1,5 @@
 # OpenWrt CUPS Package Build
-# 从 downloads.openwrt.org 下载 SDK，产出 .ipk（opkg 格式，适配 21.02.x 21.03.x-23.05.x）
+# 从 downloads.openwrt.org 下载 SDK，产出 .ipk（opkg 格式，适配 21.02.x 22.03.x-23.05.x）
 name: Build CUPS for OpenWrt—MT7621-old
 
 on:
@@ -15,7 +15,7 @@ on:
         default: 'false'
 
 env:
-  OPENWRT_VERSION: "21.02.0"
+  OPENWRT_VERSION: "22.03.0"
 
 jobs:
   build:
@@ -54,13 +54,13 @@ jobs:
           echo "SDK_DIR=${SDK_DIR}" >> $GITHUB_ENV
 
       - name: Configure feed
+        env:
+          FEED_DIR: "https://github.com/marchmin/lede-cups.git"
         run: |
-          FEED_DIR="https://github.com/marchmin/OpenWrt_OpenPrinting_cups"
           cd ${{ steps.sdk.outputs.dir }}
-          [ -f feeds.conf ] || cp feeds.conf.default feeds.conf
-          echo "src-link openprinting_cups $FEED_DIR" >> feeds.conf
+          echo "src-git printing_packages $FEED_DIR" >> feeds.conf.default
           ./scripts/feeds update -a
-          ./scripts/feeds install -p openprinting_cups -f cups
+          ./scripts/feeds install -p printing_packages -f cups
           make defconfig 2>/dev/null || true
           
       - name: SSH connection to Actions
@@ -73,9 +73,8 @@ jobs:
       - name: Build CUPS packages
         run: |
           cd ${{ steps.sdk.outputs.dir }}
-          ls package/feeds/openprinting_cups/cups
-          make package/cups/compile -j$(nproc) V=s
-          
+          make package/feeds/printing_packages/cups/compile -j$(nproc) V=s
+
       - name: Upload packages
         uses: actions/upload-artifact@v4
         with:
