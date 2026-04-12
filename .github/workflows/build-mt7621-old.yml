@@ -15,8 +15,8 @@ on:
         default: 'false'
 
 env:
-  OPENWRT_VERSION: "21.02.0"
-  FEED_DIR_URL: "https://github.com/marchmin/lede-cups.git"
+  OPENWRT_VERSION: "22.03.0"
+  FEED_DIR_URL: "https://github.com/marchmin/openwrt-printing-packages-2.git"
 
 jobs:
   build:
