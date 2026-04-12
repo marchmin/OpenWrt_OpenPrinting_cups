@@ -16,7 +16,7 @@ on:
 
 env:
   OPENWRT_VERSION: "23.05.0"
-  FEED_DIR_URL: "https://github.com/marchmin/OpenWrt_OpenPrinting_cups.git"
+  FEED_DIR_URL: "https://github.com/marchmin/lede-cups.git"
 
 jobs:
   build:
@@ -58,7 +58,6 @@ jobs:
           cd ${{ steps.sdk.outputs.dir }}
           echo "src-git printing_packages ${{ env.FEED_DIR_URL }}" >> feeds.conf.default
           ./scripts/feeds update -a
-          ./scripts/feeds install -p printing_packages -f gutenprint
           ./scripts/feeds install -p printing_packages -f cups
           make defconfig 2>/dev/null || true
           
