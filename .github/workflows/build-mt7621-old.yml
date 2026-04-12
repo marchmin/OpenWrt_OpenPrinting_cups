@@ -15,8 +15,8 @@ on:
         default: 'false'
 
 env:
-  OPENWRT_VERSION: "23.05.0"
-  FEED_DIR_URL: "https://github.com/marchmin/openwrt-printing-packages.git"
+  OPENWRT_VERSION: "21.02.0"
+  FEED_DIR_URL: "https://github.com/marchmin/OpenWrt_OpenPrinting_cups.git"
 
 jobs:
   build:
@@ -71,7 +71,6 @@ jobs:
       - name: Build CUPS packages
         run: |
           cd ${{ steps.sdk.outputs.dir }}
-          #make package/feeds/printing_packages/gutenprint/compile -j$(nproc) V=s
           make package/feeds/printing_packages/cups/compile -j$(nproc) V=s
       - name: Upload packages
         uses: actions/upload-artifact@v4
