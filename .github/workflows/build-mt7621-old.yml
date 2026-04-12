@@ -16,7 +16,7 @@ on:
 
 env:
   OPENWRT_VERSION: "22.03.0"
-  FEED_DIR_URL: "https://github.com/marchmin/openwrt-printing-packages-2.git"
+  FEED_DIR_URL: "https://github.com/marchmin/lede-cups.git"
 
 jobs:
   build:
