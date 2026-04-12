@@ -15,8 +15,8 @@ on:
         default: 'false'
 
 env:
-  OPENWRT_VERSION: "22.03.0"
-  FEED_DIR_URL: "https://github.com/marchmin/openwrt-printing-packages-2.git"
+  OPENWRT_VERSION: "23.05.0"
+  FEED_DIR_URL: "https://github.com/marchmin/openwrt-printing-packages.git"
 
 jobs:
   build:
